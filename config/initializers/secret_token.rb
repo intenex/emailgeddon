@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Emailgeddon::Application.config.secret_key_base = '9290d7bc5b0dd8e23ccbc36a3355f5e873718051836ad5a6e4612179f0c16ae7c8fb2a22c8ae766a3587180e3d05e2984aba4db818200ea1b270c389070a42a8'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+SampleApp::Application.config.secret_key_base = secure_token
