@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
-# Use sqlite3 as the database for Active Record
+# Use sqlite3 as the database for Active Record for testing and development, and postgres for production since Heroku doesn't support sqlite
 gem 'sqlite3', group: [:development, :test]
 gem 'pg', group: [:production]
 
