@@ -6,6 +6,15 @@ h1, h2, h3 {
     text-align: center;
     }
 }
+
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
 /***** end General CSS *****/
 
 /***** Add New Listing Popup CSS *****/
@@ -33,3 +42,4 @@ padding:12px;
 width:1200px;
 }
 /***** end Add New Listing Popup CSS *****/
+
