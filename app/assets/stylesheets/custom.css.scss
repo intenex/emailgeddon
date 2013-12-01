@@ -27,8 +27,8 @@ top:0;
 left:0;  
 background:#000000;  
 z-index:1;  
-}  
-.popupInnovation{  
+}
+.popup{  
 display:none;
 position:fixed;
 height:270px;
@@ -37,9 +37,6 @@ background:#dddddd;
 border:2px solid #999999;
 z-index:2;
 padding:12px;
-}
-#loopedInnovation{
-width:1200px;
 }
 /***** end Add New Listing Popup CSS *****/
 
