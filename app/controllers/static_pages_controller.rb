@@ -7,4 +7,7 @@ class StaticPagesController < ApplicationController
 
   def finder
   end
+
+  def navtest
+  end
 end
