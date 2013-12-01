@@ -1,1 +1,37 @@
 @import "bootstrap";
+
+/* Super useful guide to selectors: http://www.w3.org/TR/CSS2/selector.html */
+
+/***** General CSS *****/
+h1, h2, h3 {
+    &.main_header { /* Matches h1.main_header, h2.main_header, h3.main_header */
+    text-align: center;
+    }
+}
+/***** end General CSS *****/
+
+/***** Add New Listing Popup CSS *****/
+.popupBackground{  
+display:none;  
+position:fixed;
+height:100%;  
+width:100%;  
+top:0;  
+left:0;  
+background:#000000;  
+z-index:1;  
+}  
+.popupInnovation{  
+display:none;
+position:fixed;
+height:270px;
+width:600px;
+background:#dddddd;
+border:2px solid #999999;
+z-index:2;
+padding:12px;
+}
+#loopedInnovation{
+width:1200px;
+}
+/***** end Add New Listing Popup CSS *****/
