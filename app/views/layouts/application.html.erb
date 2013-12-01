@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    
     <!-- This is a 'partial - tells Rails to include a file called _header.html.erb in the layouts directory -->
     <%= render 'layouts/header' %>
-
   <body>
-
     <div class="container">
-
-    <%= render 'layouts/navigation' %>
-
-
-
-            <%= yield %>
-
+      <%= render 'layouts/navigation' %>
+      <%= yield %>
     </div> <!-- /container -->
-</body></html>
+  </body>
+</html>
