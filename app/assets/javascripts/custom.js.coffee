@@ -14,6 +14,7 @@ unloadPopup = (el) ->
         $("."+el).fadeOut(200)
         popupLoaded = 0
 
+/*
 centerPopup = (el) ->
     windowWidth = document.documentElement.clientWidth
     windowHeight = document.documentElement.clientHeight
@@ -25,10 +26,12 @@ centerPopup = (el) ->
         "left": windowWidth/2-popupWidth/2
     })
     $(".popupBackground").css({"height": windowHeight})
+*/
 
 // end Popup Loader
 
 // Get generated emails 
+/*
 generateEmails = (id) ->
     first_name = $("#firstname").val()
     last_name = $("#lastname").val()
@@ -38,4 +41,5 @@ generateEmails = (id) ->
         { first: first_name, last: last_name, domain: domain_name },
     (response) -> $("."+id).html(response)
     )
-// End generated emails 
+*/
+// End generated emails
