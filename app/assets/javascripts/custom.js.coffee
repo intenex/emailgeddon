@@ -11,11 +11,13 @@ loadPopup = (el) ->
         popupLoaded = 1
 */
 
+/*
 unloadPopup = (el) ->
     if popupLoaded is 1
         $(".popupBackground").fadeOut(200)
         $("."+el).fadeOut(200)
         popupLoaded = 0
+*/
 
 /*
 centerPopup = (el) ->
