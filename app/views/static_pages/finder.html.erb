@@ -1,0 +1,20 @@
+    <center>
+    <p>Enter a name and a domain.</p>
+    <br>
+    <form>
+        First name: <input type="text" name="firstname" id="firstname"><br>
+        Last name: <input type="text" name="lastname" id="lastname"><br>
+        Domain: <input type="text" name="domain" id="domain">
+    </form>
+    <button type="button" class="btn btn-primary" onClick="generateEmails('innovationBox');centerPopup('popupInnovation');loadPopup('popupInnovation')">Find Emails</button>
+    </center>
+
+<div class="popupInnovation">  
+
+    <center><em>
+    <h3>Results<h3>
+    <p class="innovationBox"></p>
+    </em></center>
+
+</div>  
+<div class="popupBackground" onClick="unloadPopup('popupInnovation');"></div>  
