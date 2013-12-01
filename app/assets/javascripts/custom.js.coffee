@@ -1,12 +1,15 @@
 // Popup Loader
 // 0 == disabled; 1 == enabled
 popupLoaded = 0
+
+/*
 loadPopup = (el) ->
     if popupLoaded is 0
         $(".popupBackground").css({"opacity": "0.7"})
         $(".popupBackground").fadeIn(200)
         $("."+el).fadeIn(200)
         popupLoaded = 1
+*/
 
 unloadPopup = (el) ->
     if popupLoaded is 1
