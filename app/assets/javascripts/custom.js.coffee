@@ -36,7 +36,6 @@ generateEmails = (id) ->
     $.post(
         "/generate/",
         { first: first_name, last: last_name, domain: domain_name },
-    function(response){
-        $("."+id).html(response)
-    })
+    (response) -> $("."+id).html(response)
+    )
 // End generated emails 
