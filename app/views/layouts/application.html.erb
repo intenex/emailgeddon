@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Emailgeddon</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<html lang="en">
+    <!-- This is a 'partial - tells Rails to include a file called _header.html.erb in the layouts directory -->
+    <%= render 'layouts/header' %>
+  <body>
+    <div class="container">
+      <%= render 'layouts/navigation' %>
+      <%= yield %>
+    </div> <!-- /container -->
+  </body>
 </html>
