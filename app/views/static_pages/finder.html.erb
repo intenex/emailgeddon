@@ -1,29 +1,40 @@
 <div class="row-fluid">
   <div class="span12">
     <div class="hero-unit">
-      <h1 class="main_header">Email Finder</h1><br/>
+      <h1 class="main_header">Emailgeddon</h1><br/>
 
         <center>
         <p>Enter a name and a domain.</p>
         <br>
+        <!--
         <form>
             First name: <input type="text" name="firstname" id="firstname"><br/><br/>
             Last name: <input type="text" name="lastname" id="lastname"><br/><br/>
             Domain: <input type="text" name="domain" id="domain"><br/><br/>
         </form>
-        <button type="button" class="btn btn-primary" onClick="generateEmails('innovationBox');centerPopup('popupInnovation');loadPopup('popupInnovation')">Find Emails</button>
+        -->
+        <div class="form">
+          <%= simple_form_for @persons do |form| %>
+            <%= form.error_notification %>
+            <%= form.input :firstname, autofocus: true %>
+            <%= form.input :lastname %>
+            <%= form.input :domain %>
+            <%= form.button :submit, 'Submit', class: 'submit' %>
+          <% end %>
+        </div>
+        <button type="button" class="btn btn-primary" onClick="generateEmails('popupBox');centerPopup('popup');loadPopup('popup')">Find Emails</button>
         </center>
 
-        <div class="popupInnovation">  
+        <div class="popup">  
 
           <center><em>
           <h3>Results</h3>
-          <p class="innovationBox"></p>
+          <p class="popupBox"></p>
           </em></center>
 
-        </div>  
+        </div>
 
-        <div class="popupBackground" onClick="unloadPopup('popupInnovation');"></div>
+        <div class="popupBackground" onClick="unloadPopup('popup');"></div>
 
     </div>
   </div>

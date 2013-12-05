@@ -6,6 +6,15 @@ h1, h2, h3 {
     text-align: center;
     }
 }
+
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
 /***** end General CSS *****/
 
 /***** Add New Listing Popup CSS *****/
@@ -18,8 +27,8 @@ top:0;
 left:0;  
 background:#000000;  
 z-index:1;  
-}  
-.popupInnovation{  
+}
+.popup{  
 display:none;
 position:fixed;
 height:270px;
@@ -29,7 +38,5 @@ border:2px solid #999999;
 z-index:2;
 padding:12px;
 }
-#loopedInnovation{
-width:1200px;
-}
 /***** end Add New Listing Popup CSS *****/
+
