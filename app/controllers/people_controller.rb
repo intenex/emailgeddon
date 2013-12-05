@@ -28,11 +28,11 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
 
-    genEmails(person_params[:firstname], person_params[:lastname], person_params[:domain])
+    combos = genEmails(person_params[:firstname], person_params[:lastname], person_params[:domain])
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to @person, notice: genEmails(person_params[:firstname], person_params[:lastname], person_params[:domain])}
+        format.html { redirect_to @person, notice: combos['fl'] + " " + combos['fullname'] }
         format.json { render action: 'show', status: :created, location: @person }
       else
         format.html { render action: 'new' }
