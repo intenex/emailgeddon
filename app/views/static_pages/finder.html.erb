@@ -6,13 +6,12 @@
         <center>
         <p>Enter a name and a domain.</p>
         <br>
-        <!--
         <form>
             First name: <input type="text" name="firstname" id="firstname"><br/><br/>
             Last name: <input type="text" name="lastname" id="lastname"><br/><br/>
             Domain: <input type="text" name="domain" id="domain"><br/><br/>
         </form>
-        -->
+        <!--
         <div class="form">
           <%= simple_form_for @persons do |form| %>
             <%= form.error_notification %>
@@ -21,6 +20,7 @@
             <%= form.input :domain %>
             <%= form.button :submit, 'Submit', class: 'submit' %>
           <% end %>
+        -->
         </div>
         <button type="button" class="btn btn-primary" onClick="generateEmails('popupBox');centerPopup('popup');loadPopup('popup')">Find Emails</button>
         </center>
