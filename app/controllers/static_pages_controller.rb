@@ -5,7 +5,10 @@ class StaticPagesController < ApplicationController
   def help
   end
 
-  def finder
+  def finder(first, last, domain)
+    @array = genEmails(first, last, domain)
+    foreach (i in @array)
+        EmailAddressValidator.validate_each(xxx)
   end
 
   def navtest
