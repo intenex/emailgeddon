@@ -1,3 +1,5 @@
+require './lib/functions.rb'
+
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
@@ -26,9 +28,11 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
 
+    genEmails(person_params[:firstname], person_params[:lastname], person_params[:domain])
+
     respond_to do |format|
       if @person.save
-        format.html { redirect_to @person, notice: 'Person was successfully created.' }
+        format.html { redirect_to @person, notice: genEmails(person_params[:firstname], person_params[:lastname], person_params[:domain])}
         format.json { render action: 'show', status: :created, location: @person }
       else
         format.html { render action: 'new' }
