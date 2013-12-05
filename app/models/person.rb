@@ -1,8 +1,4 @@
 class Person < ActiveRecord::Base
-    column :firstname, :string
-    column :lastname, :string
-    column :domain, :string
-
     validates_presence_of :firstname
     validates_presence_of :lastname
     validates_presence_of :domain
