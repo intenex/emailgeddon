@@ -8,14 +8,6 @@ class StaticPagesController < ApplicationController
   def finder
   end
 
-  def create
-    @persons = Persons.new(secure_params)
-    if @persons.valid?
-        # TODO something
-    else
-        render :finder
-  end
-
   def navtest
   end
 end
