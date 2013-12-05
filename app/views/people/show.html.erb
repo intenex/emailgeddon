@@ -15,7 +15,12 @@
   <%= @person.domain %>
 </p>
 
-<%= render @combos %>
+<% @combos.each do |key, value| %>
+    <p>
+        <strong><%= key.capitalize %>:</strong>
+        <%= value %>
+    </p>
+<% end %>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
