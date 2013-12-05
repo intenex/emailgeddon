@@ -5,10 +5,15 @@ class StaticPagesController < ApplicationController
   def help
   end
 
-  def finder(first, last, domain)
-    @array = genEmails(first, last, domain)
-    foreach (i in @array)
-        EmailAddressValidator.validate_each(xxx)
+  def finder
+  end
+
+  def create
+    @persons = Persons.new(secure_params)
+    if @persons.valid?
+        # TODO something
+    else
+        render :finder
   end
 
   def navtest
