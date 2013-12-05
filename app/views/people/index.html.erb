@@ -1,31 +1,32 @@
-<h1>Listing people</h1>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="hero-unit">
+      <h1 class="main_header">Emailgeddon</h1><br/>
 
-<table>
-  <thead>
-    <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Domain</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+        <center>
+        <p>Enter a name and a domain.</p>
+        <br>
+        <form>
+            First name: <input type="text" name="firstname" id="firstname"><br/><br/>
+            Last name: <input type="text" name="lastname" id="lastname"><br/><br/>
+            Domain: <input type="text" name="domain" id="domain"><br/><br/>
+        </form>
+        <button type="button" class="btn btn-primary" onClick="generateEmails('popupBox');centerPopup('popup');loadPopup('popup')">Find Emails</button>
+        
+        <%= render 'form' %>
+        </center>
 
-  <tbody>
-    <% @people.each do |person| %>
-      <tr>
-        <td><%= person.firstname %></td>
-        <td><%= person.lastname %></td>
-        <td><%= person.domain %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <div class="popup">  
 
-<br>
+          <center><em>
+          <h3>Results</h3>
+          <p class="popupBox"></p>
+          </em></center>
 
-<%= link_to 'New Person', new_person_path %>
+        </div>
+
+        <div class="popupBackground" onClick="unloadPopup('popup');"></div>
+
+    </div>
+  </div>
+</div>
