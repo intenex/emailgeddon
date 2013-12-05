@@ -15,12 +15,21 @@
   <%= @person.domain %>
 </p>
 
+
 <% @combos.each do |key, value| %>
     <p>
         <strong><%= key.capitalize %>:</strong>
         <%= value %>
+    </p> <% end %>
+
+<%= @results %>
+
+<% @results.each do |elem| %>
+    <p>
+        <%= elem %>
     </p>
 <% end %>
+
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>

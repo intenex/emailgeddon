@@ -1,6 +1,12 @@
 require './lib/functions.rb'
+require 'validates_email_address_of'
+require "validates_email_address_of/version"
+require "resolv"
+require "net/smtp"
 
 class PeopleController < ApplicationController
+
+
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   # GET /people
@@ -27,9 +33,9 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
-
+     
     @combos = genEmails(person_params[:firstname], person_params[:lastname], person_params[:domain])
-
+    @results = validating() 
     respond_to do |format|
       if @person.save
         format.html { render action: 'show', status: :created, location: @person }
@@ -65,6 +71,16 @@ class PeopleController < ApplicationController
     end
   end
 
+  def validating
+    
+    results = Array.new 
+    @combos.each do |key, value|
+      results.push(check_smtp(value))
+    end
+    return results
+   end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person
@@ -75,4 +91,5 @@ class PeopleController < ApplicationController
     def person_params
       params.require(:person).permit(:firstname, :lastname, :domain)
     end
+
 end

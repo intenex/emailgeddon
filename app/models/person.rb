@@ -5,4 +5,5 @@ class Person < ActiveRecord::Base
     validates_length_of :firstname, :maximum => 50
     validates_length_of :lastname, :maximum => 50
     validates_length_of :domain, :maximum => 50
+
 end
