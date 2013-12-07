@@ -49,7 +49,7 @@ def check_smtp (value)
   return unless @mx.size > 0
   Net::SMTP.start(@mx[0].exchange.to_s) do |smtp|
     begin
-      smtp.mailfrom("checkemail@nickdobie.com")
+      smtp.mailfrom("yu@benyu.org")
       smtp.rcptto(value)
     rescue
       nil

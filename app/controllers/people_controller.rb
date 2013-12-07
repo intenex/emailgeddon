@@ -35,7 +35,6 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params)
      
     @combos = genEmails(person_params[:firstname], person_params[:lastname], person_params[:domain])
-    @results = validating() 
     respond_to do |format|
       if @person.save
         format.html { render action: 'show', status: :created, location: @person }
