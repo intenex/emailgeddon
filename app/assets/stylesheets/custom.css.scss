@@ -8,7 +8,7 @@ h1, h2, h3 {
 }
 
 body {
-  padding-top: 20px;
+  padding-top: 50px;
   padding-bottom: 20px;
 }
 
@@ -16,6 +16,10 @@ body {
   margin-bottom: 20px;
 }
 /***** end General CSS *****/
+
+input.btn-primary {
+    font-size: 2em;
+}
 
 /***** Add New Listing Popup CSS *****/
 .popupBackground{  

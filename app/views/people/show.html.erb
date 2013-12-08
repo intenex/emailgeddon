@@ -1,27 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <% @email_results.each do |person| %>
-    <p>
-        <% if defined? person['name'] != "" %>
-        <strong>Name: </strong><%= person['name'] %><br/><br/>
-        <strong>Email: </strong><%= person['email'] %><br/><br/>
-        <% if person['jobs'].empty? != true %>
-            <strong>Jobs: </strong>
-            <% person['jobs'].each do |company, job| %>
-                <% if defined? company != nil && defined? job != nil %>
-                    <br/><%= job %> at <%= company %>
-                <% end %>
-            <% end %><br/><br/>
-        <% end %>
-        <% if person['sites'].empty? != true %>
-            <strong>Social Media Sites: </strong>
-            <% person['sites'].each do |site_name, link| %>
-                <br/><%= site_name %>: <a href="<%= link %>" target="_blank"><%= link %></a>
+    <% if person['name'].blank? != true %>
+        <p>
+            <strong>Name: </strong><%= person['name'] %><br/><br/>
+            <strong>Email: </strong><%= person['email'] %><br/><br/>
+            <% if person['jobs'].blank? != true %>
+                <strong>Jobs: </strong>
+                <% person['jobs'].each do |company, job| %>
+                    <% if defined? company != nil && defined? job != nil %>
+                        <br/><%= job %> at <%= company %>
+                    <% end %>
+                <% end %><br/><br/>
             <% end %>
-        <% end %>
-        <% end %>
-    </p>
-    <hr>
+            <% if person['sites'].blank? != true %>
+                <strong>Social Media Sites: </strong>
+                <% person['sites'].each do |site_name, link| %>
+                    <br/><%= site_name %>: <a href="<%= link %>" target="_blank"><%= link %></a>
+                <% end %>
+            <% end %>
+        </p>
+        <hr>
+    <% end %>
 <% end %>
 
 <br/><br/>
