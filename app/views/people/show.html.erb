@@ -1,27 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<% @email_results.each do |person| %>
-    <% if person['name'].blank? != true %>
-        <p>
-            <strong>Name: </strong><%= person['name'] %><br/><br/>
-            <strong>Email: </strong><%= person['email'] %><br/><br/>
-            <% if person['jobs'].blank? != true %>
-                <strong>Jobs: </strong>
-                <% person['jobs'].each do |company, job| %>
-                    <% if defined? company != nil && defined? job != nil %>
-                        <br/><%= job %> at <%= company %>
-                    <% end %>
-                <% end %><br/><br/>
-            <% end %>
-            <% if person['sites'].blank? != true %>
-                <strong>Social Media Sites: </strong>
-                <% person['sites'].each do |site_name, link| %>
-                    <br/><%= site_name %>: <a href="<%= link %>" target="_blank"><%= link %></a>
+<% if @email_results.blank? != true %>
+    <% @email_results.each do |person| %>
+        <% if person['name'].blank? != true %>
+            <p>
+                <strong>Name: </strong><%= person['name'] %><br/><br/>
+                <strong>Email: </strong><%= person['email'] %><br/><br/>
+                <% if person['jobs'].blank? != true %>
+                    <strong>Jobs: </strong>
+                    <% person['jobs'].each do |company, job| %>
+                        <% if defined? company != nil && defined? job != nil %>
+                            <br/><%= job %> at <%= company %>
+                        <% end %>
+                    <% end %><br/><br/>
                 <% end %>
-            <% end %>
-        </p>
-        <hr>
+                <% if person['sites'].blank? != true %>
+                    <strong>Social Media Sites: </strong>
+                    <% person['sites'].each do |site_name, link| %>
+                        <br/><%= site_name %>: <a href="<%= link %>" target="_blank"><%= link %></a>
+                    <% end %>
+                <% end %>
+            </p>
+            <hr>
+        <% end %>
     <% end %>
+<% else %>
+    <p>
+        <strong>Sorry, no results were found.</strong>
+    </p>
 <% end %>
 
 <br/><br/>
