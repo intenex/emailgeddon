@@ -20,9 +20,10 @@
     <p>
         <strong><%= key.capitalize %>:</strong>
         <%= value %>
-    </p> <% end %>
+    </p>
+<% end %>
 
-
+<%= @email_results %>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>

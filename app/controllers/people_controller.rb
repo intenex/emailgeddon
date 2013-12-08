@@ -1,4 +1,5 @@
 require './lib/functions.rb'
+require './lib/rapport.rb'
 require 'validates_email_address_of'
 require "validates_email_address_of/version"
 require "resolv"
@@ -35,6 +36,19 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params)
      
     @combos = genEmails(person_params[:firstname], person_params[:lastname], person_params[:domain])
+    @email_results = Array.new
+
+    @combos.each do |key, value|
+      @email_results.push(find_email(value))
+      #ephemeral_array = Array.new
+      #ephemeral_array.push(find_email(value))
+      #ephemeral_array.each do |key|
+      #  if key['name'] != ""
+      #    @email_results.push(key)
+      #  end
+      #end
+    end
+
     respond_to do |format|
       if @person.save
         format.html { render action: 'show', status: :created, location: @person }
