@@ -38,7 +38,7 @@ def find_email(email)
         end
     
         return person
-    rescue
+    rescue HTTPClient::BadResponseError
         return "Invalid email!"
     end
 end
