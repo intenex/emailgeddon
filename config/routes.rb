@@ -1,9 +1,6 @@
 Emailgeddon::Application.routes.draw do
   resources :people
   root 'people#index'
-  match '/home', to: 'static_pages#home', via: 'get'
-  match '/help', to: 'static_pages#help', via: 'get'
-  match '/navtest', to: 'static_pages#navtest', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
