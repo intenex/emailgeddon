@@ -27,7 +27,11 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
-    
+
+    if person_params[:firstname].blank? == true || person_params[:lastname].blank? == true || person_params[:domain].blank? == true
+        render :new
+    end
+
     # must initialize this array or else the if @harvard[2] != nil statements throw a bitch fit at you
     @harvard = Array.new
 
