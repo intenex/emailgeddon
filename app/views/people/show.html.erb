@@ -1,34 +1,70 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Results</h1><br/>
-<% if @email_results.blank? != true %>
-    <% @email_results.each do |person| %>
-        <% if person['name'].blank? != true %>
-            <p>
-                <strong>Name: </strong><%= person['name'] %><br/><br/>
-                <strong>Email: </strong><%= person['email'] %><br/>
-                <% if person['jobs'].blank? != true %>
-                    <br/><strong>Jobs: </strong>
-                    <% person['jobs'].each do |company, job| %>
-                        <% if defined? company != nil && defined? job != nil %>
-                            <br/><%= job %> at <%= company %>
-                        <% end %>
-                    <% end %><br/>
-                <% end %>
-                <% if person['sites'].blank? != true %>
-                    <br/><strong>Social Media Sites: </strong>
-                    <% person['sites'].each do |site_name, link| %>
-                        <br/><%= site_name %>: <a href="<%= link %>" target="_blank"><%= link %></a>
-                    <% end %>
-                <% end %>
-            </p>
-            <hr>
-        <% end %>
-    <% end %>
-<% else %>
-    <p>
-        <strong>Sorry, no results were found.</strong>
-    </p>
-<% end %>
 
-<br/><br/>
+<%# check if is a Harvard student and email was available, if so, do following, if not, print everyone out normally as per below %>
+<% if @harvard[2] != nil %>
+    <p>
+        <strong>Name: </strong><%= @harvard[0] + " " + @harvard[1] %><br/><br/>
+        <strong>Email: </strong><%= @harvard[2] %><br/>
+        <% if @harvard[3] != nil %>
+            <br/><strong>Phone: </strong><%= @harvard[3] %><br/>
+        <% end %>
+        <%# only print out the name of the house, like Currier, not Currier House, so must split %>
+        <% if @harvard[4] != nil %>
+            <% house = @harvard[4].split(' ') %>
+            <br/><strong>House: </strong><%= house.first %><br/>
+        <% end %>
+        <% if @harvard[6] != nil %>
+            <br/><strong>Year: </strong><%= @harvard[6] %><br/>
+        <% end %>
+        <%# if any rapportive data found, return it %>
+        <% if defined? @harvard_rapport != nil %>
+            <% if @harvard_rapport['jobs'].blank? != true %>
+                <br/><strong>Work: </strong>
+                <% @harvard_rapport['jobs'].each do |company, job| %>
+                    <% if defined? company != nil && defined? job != nil %>
+                        <br/><%= job %> at <%= company %>
+                    <% end %>
+                <% end %><br/>
+            <% end %>
+            <% if @harvard_rapport['sites'].blank? != true %>
+                <br/><strong>Profiles: </strong>
+                <% @harvard_rapport['sites'].each do |site_name, link| %>
+                    <br/><%= site_name %>: <a href="<%= link %>" target="_blank"><%= link %></a>
+                <% end %>
+            <% end %>
+        <% end %>
+<% else %>
+    <%# if not harvard, if any results, just print them normally %>
+    <% if @email_results.blank? != true %>
+        <% @email_results.each do |person| %>
+            <% if person['name'].blank? != true %>
+                <p>
+                    <strong>Name: </strong><%= person['name'] %><br/><br/>
+                    <strong>Email: </strong><%= person['email'] %><br/>
+                    <% if person['jobs'].blank? != true %>
+                        <br/><strong>Work: </strong>
+                        <%# iterate over each job saying 'job_title' at 'company' %>
+                        <% person['jobs'].each do |company, job| %>
+                            <% if defined? company != nil && defined? job != nil %>
+                                <br/><%= job %> at <%= company %>
+                            <% end %>
+                        <% end %><br/>
+                    <% end %>
+                    <% if person['sites'].blank? != true %>
+                        <br/><strong>Profiles: </strong>
+                        <% person['sites'].each do |site_name, link| %>
+                            <br/><%= site_name %>: <a href="<%= link %>" target="_blank"><%= link %></a>
+                        <% end %>
+                    <% end %>
+                </p>
+                <hr>
+            <% end %>
+        <% end %>
+    <% else %>
+        <p>
+            <strong>Sorry, no results were found.</strong>
+        </p>
+    <% end %>
+<% end %>

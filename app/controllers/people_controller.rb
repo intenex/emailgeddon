@@ -1,5 +1,4 @@
 require './lib/functions.rb'
-require './lib/rapport.rb'
 
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
@@ -28,16 +27,32 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
-     
-    @combos = genEmails(person_params[:firstname], person_params[:lastname], person_params[:domain])
-    @email_results = Array.new
+    
+    # must initialize this array or else the if @harvard[2] != nil statements throw a bitch fit at you
+    @harvard = Array.new
 
-    @combos.each do |key, value|
-      ephemeral_array = Array.new
-      ephemeral_array.push(find_email(value))
-      ephemeral_array.each do |person|
-        if person != "Invalid email!"
-          @email_results.push(person)
+    # if domain is college.harvard.edu or fas.harvard.edu, cross-check with spreadsheet instead of doing all the email combos
+    if person_params[:domain] == 'college.harvard.edu' || person_params[:domain] == 'fas.harvard.edu'
+      @harvard = find_harvard(person_params[:firstname], person_params[:lastname])
+    end
+    # if the person is found and an email for them is in the spreadsheet, just find the info for that email
+    if @harvard[2] != nil
+        @harvard_rapport = find_email(@harvard[2])
+    # otherwise, if not a harvard undergrad email or no email for given person found, do the whole genEmails combo thing
+    else
+      # create a hash with all the different email combinations
+      @combos = genEmails(person_params[:firstname], person_params[:lastname], person_params[:domain])
+      @email_results = Array.new
+      # for each combo check if email valid, and if so, add to @email_results
+      @combos.each do |key, value|
+        # use a temp array to store all returned results, even nil ones
+        ephemeral_array = Array.new
+        ephemeral_array.push(find_email(value))
+        ephemeral_array.each do |person|
+          # if person does exist, add them to @email_results
+          if person != "Invalid email!"
+            @email_results.push(person)
+          end
         end
       end
     end
@@ -87,5 +102,4 @@ class PeopleController < ApplicationController
     def person_params
       params.require(:person).permit(:firstname, :lastname, :domain)
     end
-
 end
