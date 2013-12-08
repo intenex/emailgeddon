@@ -7,7 +7,9 @@
         <% if person['jobs'].empty? != true %>
             <strong>Jobs: </strong>
             <% person['jobs'].each do |company, job| %>
-                <br/><%= job %> at <%= company %>
+                <% if defined? company != nil && defined? job != nil %>
+                    <br/><%= job %> at <%= company %>
+                <% end %>
             <% end %><br/><br/>
         <% end %>
         <% if person['sites'].empty? != true %>
