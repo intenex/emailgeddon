@@ -1,28 +1,8 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Findthatemail.com lets you find anyone’s email, occupation information, and social media profiles. A user types in someone’s first and last name and an email domain and hits ‘submit’. Then the website attempts to find that person’s email by checking which permutations of the first and last name along with the domain name make a valid email address via SMTP request. For all the valid emails, the website searches for all the social media platforms associated with it (facebook, twitter, linkedin, vimeo, flickr, angel.co). 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+If multiple permutations of the first name, last name, and the email domain are valid email addresses, the website finds output for all of them. The program can only find the email and social media profiles if the email is a permutation of the first and last name and some symbols, including ‘.’, ‘_’, ‘-‘ (i.e. emails with numbers and other characters).
 
 * ...
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
