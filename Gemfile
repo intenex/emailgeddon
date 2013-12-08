@@ -17,7 +17,7 @@ gem 'jbuilder', '1.0.2'
 gem "validates_email_address_of", "~> 0.0.6"
 gem 'net-dns', '0.8.0'
 gem "simple_form", "~> 3.0.1"
-gem "email2face", "~> 0.1.3"
+#gem "email2face", "~> 0.1.3"
 gem "httpclient", "~> 2.3.4.1" 
 gem "docopt", "~> 0.5.0"
 gem "json", "~> 1.8.1"
