@@ -35,7 +35,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    docopt (0.5.0)
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -53,7 +52,6 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.2)
-    net-dns (0.8.0)
     pg (0.15.1)
     polyglot (0.3.3)
     rack (1.5.2)
@@ -88,9 +86,6 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
-    simple_form (3.0.1)
-      actionpack (>= 4.0.0, < 4.1)
-      activemodel (>= 4.0.0, < 4.1)
     sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -114,27 +109,21 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    validates_email_address_of (0.0.6)
-      activemodel (>= 3.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-rails (= 4.0.1)
-  docopt (~> 0.5.0)
   httpclient (~> 2.3.4.1)
   jbuilder (= 1.0.2)
   jquery-rails (= 3.0.4)
   json (~> 1.8.1)
-  net-dns (= 0.8.0)
   pg (= 0.15.1)
   rails (= 4.0.1)
   rails_12factor (= 0.0.2)
   sass-rails (= 4.0.1)
   sdoc (= 0.3.20)
-  simple_form (~> 3.0.1)
   sqlite3 (= 1.3.8)
   turbolinks (= 1.1.1)
   uglifier (= 2.1.1)
-  validates_email_address_of (~> 0.0.6)

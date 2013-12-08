@@ -1,13 +1,7 @@
 require './lib/functions.rb'
 require './lib/rapport.rb'
-require 'validates_email_address_of'
-require "validates_email_address_of/version"
-require "resolv"
-require "net/smtp"
 
 class PeopleController < ApplicationController
-
-
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   # GET /people
@@ -82,16 +76,6 @@ class PeopleController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def validating
-    
-    results = Array.new 
-    @combos.each do |key, value|
-      results.push(check_smtp(value))
-    end
-    return results
-   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.

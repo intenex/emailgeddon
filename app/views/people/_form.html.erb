@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+<div class="search_form">
   <div class="field">
     <%= f.label :firstname, 'First name: ' %>
     <%= f.text_field :firstname %>
@@ -23,7 +24,10 @@
     <%= f.label :domain, 'Domain: ' %>
     <%= f.text_field :domain %>
   </div>
+  <center>
   <div class="actions">
     <%= f.submit 'Find Emails', :class => 'btn btn-primary' %>
   </div>
+  </center>
+</div>
 <% end %>

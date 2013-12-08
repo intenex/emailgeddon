@@ -21,6 +21,30 @@ input.btn-primary {
     font-size: 1.5em;
 }
 
+input {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: box-shadow linear 1s;
+    transition: box-shadow linear 1s;
+}
+
+input:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px blue;
+}
+
+label {
+    font-weight: normal !important;
+}
+
+div.search_form {
+    margin-left:auto;
+    margin-right:auto;
+    width: 150px;
+}
+
 /***** Add New Listing Popup CSS *****/
 .popupBackground{  
 display:none;  
