@@ -1,6 +1,6 @@
 Emailgeddon::Application.routes.draw do
   resources :people
-  root 'static_pages#finder'
+  root 'people#index'
   match '/home', to: 'static_pages#home', via: 'get'
   match '/help', to: 'static_pages#help', via: 'get'
   match '/navtest', to: 'static_pages#navtest', via: 'get'
