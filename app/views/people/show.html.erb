@@ -15,7 +15,7 @@
         <% if person['sites'].empty? != true %>
             <strong>Social Media Sites: </strong>
             <% person['sites'].each do |site_name, link| %>
-                <br/><%= site_name %>: <a href="<%= link %>"><%= link %></a>
+                <br/><%= site_name %>: <a href="<%= link %>" target="_blank"><%= link %></a>
             <% end %>
         <% end %>
     </p>
