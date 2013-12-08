@@ -1,29 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @person.firstname %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @person.lastname %>
-</p>
-
-<p>
-  <strong>Domain:</strong>
-  <%= @person.domain %>
-</p>
-
-
-<% @combos.each do |key, value| %>
+<% @email_results.each do |person| %>
     <p>
-        <strong><%= key.capitalize %>:</strong>
-        <%= value %>
+        <strong>Name: </strong><%= person['name'] %><br/><br/>
+        <strong>Email: </strong><%= person['email'] %><br/><br/>
+        <% if person['jobs'].empty? != true %>
+            <strong>Jobs: </strong>
+            <% person['jobs'].each do |company, job| %>
+                <br/><%= job %> at <%= company %>
+            <% end %><br/><br/>
+        <% end %>
+        <% if person['sites'].empty? != true %>
+            <strong>Social Media Sites: </strong>
+            <% person['sites'].each do |site_name, link| %>
+                <br/><%= site_name %>: <a href="<%= link %>"><%= link %></a>
+            <% end %>
+        <% end %>
     </p>
+    <hr>
 <% end %>
 
-<%= @email_results %>
-
+<br/><br/>
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>

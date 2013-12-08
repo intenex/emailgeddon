@@ -39,14 +39,13 @@ class PeopleController < ApplicationController
     @email_results = Array.new
 
     @combos.each do |key, value|
-      @email_results.push(find_email(value))
-      #ephemeral_array = Array.new
-      #ephemeral_array.push(find_email(value))
-      #ephemeral_array.each do |key|
-      #  if key['name'] != ""
-      #    @email_results.push(key)
-      #  end
-      #end
+      ephemeral_array = Array.new
+      ephemeral_array.push(find_email(value))
+      ephemeral_array.each do |person|
+        if person != "Invalid email!"
+          @email_results.push(person)
+        end
+      end
     end
 
     respond_to do |format|
